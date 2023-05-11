@@ -50,7 +50,7 @@ public class NuevoUsuarioServlet extends HttpServlet {
 						request.getParameter("telefono").toString()
 						);
 		cliente.setClienteId(String.valueOf(clienteDAO.save(cliente)));
-		request.setAttribute("Cliente", cliente);
+		request.setAttribute("cliente", cliente);
 		request.getRequestDispatcher("addCliente.jsp").forward(request, response);
 	}
 

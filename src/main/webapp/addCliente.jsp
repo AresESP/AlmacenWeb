@@ -35,8 +35,20 @@
             
             <button type="submit" value="Submit">Insertar</button>
         </form>
-        <c:if test="${idCliente > 0}">
-        	<h6>Cliente añadido exitosamente con id:${idCliente}</h6>
+        <c:if test="${not empty cliente}">
+        	<h3>Cliente añadido exitosamente, datos cliente: </h3>
+        	<ul>
+        		<li>Nombre: ${cliente.nombre}</li>
+        		<li>Primer apellido: ${cliente.apellido1}</li>
+        		<li>Segundo apellido: ${cliente.apellido2}</li>
+        		<c:choose>
+        			<c:when test="${not empty cliente.apellido2}">
+        				${cliente.apellido2}
+        			</c:when>
+        		</c:choose>
+        		<li>NIF: ${cliente.dni}</li>
+        		<li>Telefono: ${cliente.telefono}</li>
+        	</ul>
         </c:if>
     </main>
 </body>
