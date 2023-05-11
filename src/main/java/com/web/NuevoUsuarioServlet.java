@@ -33,6 +33,7 @@ public class NuevoUsuarioServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.sendError(500, "Acción incorrecta");
+		//Cambio
 	}
 
 	/**
