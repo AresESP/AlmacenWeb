@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="6.0">
+  <display-name>AlmacenEnWeb</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>Index</display-name>
+    <servlet-name>Index</servlet-name>
+    <jsp-file>/Index.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Index</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FindAllClientesServlet</display-name>
+    <servlet-name>FindAllClientesServlet</servlet-name>
+    <servlet-class>com.web.FindAllClientesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FindAllClientesServlet</servlet-name>
+    <url-pattern>/clientes</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>NuevoUsuarioServlet</display-name>
+    <servlet-name>NuevoUsuarioServlet</servlet-name>
+    <servlet-class>com.web.NuevoUsuarioServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>NuevoUsuarioServlet</servlet-name>
+  <url-pattern>/NuevoUsuarioServlet</url-pattern>
+</servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>nuevoUsuario</display-name>
+    <servlet-name>nuevoUsuario</servlet-name>
+    <jsp-file>/addCliente.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>nuevoUsuario</servlet-name>
+    <url-pattern>/nuevoUsuario</url-pattern>
+  </servlet-mapping>
+</web-app>
