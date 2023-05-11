@@ -39,14 +39,14 @@
         	<h3>Cliente añadido exitosamente, datos cliente: </h3>
         	<ul>
         		<li>Nombre: ${cliente.nombre}</li>
-        		<li>Primer apellido: ${cliente.apellido1}</li>
-        		<li>Segundo apellido: ${cliente.apellido2}</li>
+        		<li>Primer apellido: ${cliente.apelido1}</li>
+        		<li>Segundo apellido: ${cliente.apelido2}</li>
         		<c:choose>
-        			<c:when test="${not empty cliente.apellido2}">
-        				${cliente.apellido2}
+        			<c:when test="${not empty cliente.apelido2}">
+        				${cliente.apelido2}
         			</c:when>
         		</c:choose>
-        		<li>NIF: ${cliente.dni}</li>
+        		<li>NIF: ${cliente.nif}</li>
         		<li>Telefono: ${cliente.telefono}</li>
         	</ul>
         </c:if>
