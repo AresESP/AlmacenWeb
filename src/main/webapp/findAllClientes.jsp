@@ -8,17 +8,7 @@
 <title>Obtener cliente</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="${pageContext.request.contextPath}">Inicio</a></li>
-                <li><a href="${pageContext.request.contextPath}/clientes">Lista de Usuarios</a></li>
-                <li><a href="${pageContext.request.contextPath}/nuevoUsuario">Añadir usuario</a></li>
-                <li><a href="${pageContext.request.contextPath}/actualizarUsuario">Actualizar Usuario</a></li>
-                <li><a href="${pageContext.request.contextPath}/eliminarUsuario">Eliminar Usuario</a></li>
-            </ul>
-        </nav>
-    </header>
+	<%@include file="/WEB-INF/shared_headerJSP.jsp"%>
     <main>
     	<h1>Obteniendo clientes</h1>
 		<table border="1">
@@ -29,11 +19,15 @@
 					<th>Segundo Apellido</th>
 					<th>NIF</th>
 					<th>Telefono</th>
+					<th>Editar</th>
+					<th>Borrar</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="cliente" items="${clientes}">
 					<tr>
+						<c:set var="editarCliente" value="/editarCliente?idCliente=${cliente.clienteId}"></c:set>
+						<c:set var="borrarCliente" value="/borrarCliente?idCliente=${cliente.clienteId}"></c:set>
 						<td>${cliente.nombre}</td>
 						<td>${cliente.apelido1}</td>
 						<c:choose>
@@ -45,7 +39,9 @@
 							</c:otherwise>
 						</c:choose>
 						<td>${cliente.nif}</td>
-						<td>${cliente.telefono}</td>	
+						<td>${cliente.telefono}</td>
+						<td><a href="${pageContext.request.contextPath}${editarCliente}">Editar</a></td>
+						<td><a href="${pageContext.request.contextPath}${borrarCliente}">Borrar</a></td>
 					<tr>				
 				</c:forEach>					
 			</tbody>

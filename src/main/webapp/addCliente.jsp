@@ -8,17 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="${pageContext.request.contextPath}">Inicio</a></li>
-                <li><a href="${pageContext.request.contextPath}/clientes">Lista de Usuarios</a></li>
-                <li><a href="${pageContext.request.contextPath}/nuevoUsuario">Añadir usuario</a></li>
-                <li><a href="${pageContext.request.contextPath}/actualizarUsuario">Actualizar Usuario</a></li>
-                <li><a href="${pageContext.request.contextPath}/eliminarUsuario">Eliminar Usuario</a></li>
-            </ul>
-        </nav>
-    </header>
+	<%@include file="/WEB-INF/shared_headerJSP.jsp"%>
     
     <main>
     	<h1>Añadir usuario</h1>
@@ -40,11 +30,14 @@
         	<ul>
         		<li>Nombre: ${cliente.nombre}</li>
         		<li>Primer apellido: ${cliente.apelido1}</li>
-        		<li>Segundo apellido: ${cliente.apelido2}</li>
+        		<li>Segundo apellido: </li>
         		<c:choose>
         			<c:when test="${not empty cliente.apelido2}">
         				${cliente.apelido2}
         			</c:when>
+        			<c:otherwise>
+        				---
+        			</c:otherwise>
         		</c:choose>
         		<li>NIF: ${cliente.nif}</li>
         		<li>Telefono: ${cliente.telefono}</li>

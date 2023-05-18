@@ -17,7 +17,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Index</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern></url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -36,10 +36,10 @@
     <servlet-class>com.web.NuevoUsuarioServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  <servlet-name>NuevoUsuarioServlet</servlet-name>
-  <url-pattern>/NuevoUsuarioServlet</url-pattern>
-</servlet-mapping>
-    <servlet>
+    <servlet-name>NuevoUsuarioServlet</servlet-name>
+    <url-pattern>/NuevoUsuarioServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <description></description>
     <display-name>nuevoUsuario</display-name>
     <servlet-name>nuevoUsuario</servlet-name>
@@ -49,4 +49,18 @@
     <servlet-name>nuevoUsuario</servlet-name>
     <url-pattern>/nuevoUsuario</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>editarCliente</display-name>
+    <servlet-name>editarCliente</servlet-name>
+    <servlet-class>com.web.editarCliente</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>editarCliente</servlet-name>
+    <url-pattern>/editarCliente</url-pattern>
+  </servlet-mapping>
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/WEB-INF/error404.jsp</location>
+  </error-page>
 </web-app>
