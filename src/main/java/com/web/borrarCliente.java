@@ -1,9 +1,9 @@
 package com.web;
 
 import java.io.IOException;
-import java.util.List;
 
 import org.feliz.almacen.api.MotorApiServicioNegocio;
+import org.feliz.almacen.api.modelo.Cliente;
 import org.feliz.almacen.api.modelo.ICliente;
 
 import jakarta.servlet.ServletException;
@@ -12,39 +12,47 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class FindAllClientesServlet
+ * Servlet implementation class editarCliente
  */
-public class FindAllClientesServlet extends HttpServlet {
+public class borrarCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final MotorApiServicioNegocio api = new MotorApiServicioNegocio();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindAllClientesServlet() {
+    public borrarCliente() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		MotorApiServicioNegocio api = new MotorApiServicioNegocio();
-		List<ICliente> clientes = api.listaClientes();
-		if (clientes != null && clientes.size()>0) {
-			request.setAttribute("clientes", clientes);
-			request.getRequestDispatcher("findAllClientes.jsp").forward(request, response);			
+		try {
+			MotorApiServicioNegocio api = new MotorApiServicioNegocio();
+			String idCliente = request.getParameter("idCliente");
+			if(idCliente != null) {
+				if (api.borrarCliente(idCliente)) {
+					response.sendRedirect(request.getContextPath()+"/clientes");
+				}
+				else {
+					response.sendError(500);
+				}
+			}
+			else {
+				response.sendError(404);
+			}			
+		} catch (Exception e) {
+			response.sendError(500);
 		}
-		else {
-			response.sendError(503, "El servidor no ha devuelto ningún cliente");
-		}
+
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

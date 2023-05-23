@@ -59,8 +59,36 @@
     <servlet-name>editarCliente</servlet-name>
     <url-pattern>/editarCliente</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>borrarCliente</display-name>
+    <servlet-name>borrarCliente</servlet-name>
+    <servlet-class>com.web.borrarCliente</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>borrarCliente</servlet-name>
+    <url-pattern>/borrarCliente</url-pattern>
+  </servlet-mapping>
   <error-page>
-  	<error-code>404</error-code>
-  	<location>/WEB-INF/error404.jsp</location>
+    <error-code>404</error-code>
+    <location>/WEB-INF/error404.jsp</location>
   </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/WEB-INF/error500.jsp</location>
+  </error-page>
+  <error-page>
+    <exception-type>java.lang.Exception</exception-type>
+    <location>/WEB-INF/errorHandler</location>
+  </error-page>
+  <servlet>
+    <description></description>
+    <display-name>errorHandler</display-name>
+    <servlet-name>errorHandler</servlet-name>
+    <servlet-class>com.web.errorHandler</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>errorHandler</servlet-name>
+    <url-pattern>/errorHandler</url-pattern>
+  </servlet-mapping>
 </web-app>
