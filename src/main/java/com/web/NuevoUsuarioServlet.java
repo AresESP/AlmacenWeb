@@ -31,14 +31,7 @@ public class NuevoUsuarioServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.sendError(500, "Acción incorrecta");
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub	
 		IClienteDAO clienteDAO = ProducerAbstractFactoryDAO.getFactoryDAO().getClienteDAO();
 		ICliente cliente = 
 				new Cliente(
@@ -52,6 +45,13 @@ public class NuevoUsuarioServlet extends HttpServlet {
 		cliente.setClienteId(String.valueOf(clienteDAO.save(cliente)));
 		request.setAttribute("cliente", cliente);
 		request.getRequestDispatcher("addCliente.jsp").forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
 	}
 
 }
